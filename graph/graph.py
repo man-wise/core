@@ -1,8 +1,8 @@
-from linux_assistant.graph.nodes import shell_node, prepare_shell_code,\
+from core.graph.nodes import shell_node, prepare_shell_code,\
                         tool_select, prepare_tool_prompt, prepare_search_query, search_tools
-from linux_assistant.utils.dicts import AgentState
-from linux_assistant.models.model_nodes import model_nodes
-from linux_assistant.utils.config_handler import config
+from core.utils.dicts import AgentState
+from core.models.model_nodes import model_nodes
+from core.utils.config_handler import config
 from langgraph.graph import StateGraph, START,END
 
 def build_graph(model_config: config) -> StateGraph:

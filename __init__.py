@@ -1,4 +1,4 @@
-# linux_assistant/__init__.py
+# man-wise/__init__.py
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 

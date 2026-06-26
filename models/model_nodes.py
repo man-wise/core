@@ -1,9 +1,9 @@
 import json
 from llama_cpp import Llama, LlamaRAMCache
 from huggingface_hub import hf_hub_download
-from linux_assistant.utils.dicts import AgentState
+from core.utils.dicts import AgentState
 from rich.progress import Progress, SpinnerColumn, TextColumn
-from linux_assistant.utils.config_handler import config
+from core.utils.config_handler import config
 class model_nodes:
     def __init__(self, model_config: config):
         self.config = model_config
@@ -81,8 +81,7 @@ class model_nodes:
     def build_model(self):
         ''' A function to define the LM '''
         model_path = hf_hub_download(repo_id=self.config.get_repo_id(),
-                                    filename=self.config.get_model_name(),
-                                    local_dir="./model")
+                                    filename=self.config.get_model_name())
         model = Llama(
             model_path=model_path,
             n_ctx=2**15,                    

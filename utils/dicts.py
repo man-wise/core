@@ -1,5 +1,5 @@
 from typing import TypedDict,  Sequence
-from linux_assistant.utils.console_utils import console_utils
+from core.utils.console_utils import console_utils
 from langchain_core.messages import BaseMessage    
 
 class AgentState(TypedDict):

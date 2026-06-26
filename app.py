@@ -1,7 +1,7 @@
-from linux_assistant.graph.graph import build_graph
-from linux_assistant.utils.dicts import AgentState
-from linux_assistant.utils.console_utils import console_utils
-from linux_assistant.utils.config_handler import config
+from core.graph.graph import build_graph
+from core.utils.dicts import AgentState
+from core.utils.console_utils import console_utils
+from core.utils.config_handler import config
 
 def run_app():
     model_config = config()

@@ -4,5 +4,5 @@ def require_llama():
     except ImportError:
         raise RuntimeError(
             "llama-cpp-python not installed.\n"
-            "Run: linux-assistant setup"
+            "Run: man-wise setup"
         )

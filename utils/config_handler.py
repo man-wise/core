@@ -1,10 +1,11 @@
 import json
-from linux_assistant.models.system_prompts import system_prompts
+from core.models.system_prompts import system_prompts
+import os
 class config:
     
     def __init__(self):
         self.config = None
-        self._config_path = "linux_assistant/config.json"
+        self._config_path = os.path.join(os.path.dirname(__file__), "../config.json")
         self._load_config()
         self.system_prompt = system_prompts
                 

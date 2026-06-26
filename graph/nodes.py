@@ -1,6 +1,6 @@
-from linux_assistant.graph.config import MAX_SEARCH_RESULTS, WIKIPEDIA_RESULTS, SHOW_CODE_OUTPUT
-from linux_assistant.utils.dicts import AgentState
-from linux_assistant.utils.subprocess import processor
+from core.graph.config import MAX_SEARCH_RESULTS, WIKIPEDIA_RESULTS, SHOW_CODE_OUTPUT
+from core.utils.dicts import AgentState
+from core.utils.subprocess import processor
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from langchain_community.tools.wikipedia.tool import WikipediaQueryRun
 from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
