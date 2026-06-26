@@ -27,7 +27,7 @@ class console_utils:
     def __init__(self, config):
         self.config = config
         self.console = Console()
-        self.banner = Figlet(font="slant").renderText("Linux Assistant")
+        self.banner = Figlet(font="slant").renderText("MANWASE")
         self.intro_md = Markdown("Welcome! Enjoy your linux more.")
         self.custom_style = Style.from_dict({
             'question': 'magenta',
