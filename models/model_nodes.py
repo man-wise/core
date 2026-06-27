@@ -19,6 +19,8 @@ class model_nodes:
             transient=not self.config.config['show_thinking'],) as prog:
             task = prog.add_task("💻 Code generation....", total=None)
             for chunk in stream:
+                if self.config.config['show_code_gen']:
+                    prog.update(task, description=response_content, end = '', flush = True)
                 chunk = chunk["choices"][0]["delta"].get("content", "")
                 response_content += chunk
                 if chunk == '```':
@@ -57,7 +59,7 @@ class model_nodes:
                 if chunk == '</think>':
                     is_think_generated = True
                     continue
-                if is_think_generated and not (chunk == 'shell' or chunk == 'search' or chunk == '```'):
+                if is_think_generated and not (chunk == '```'):
                     break
                     
         tmp = True
@@ -65,7 +67,7 @@ class model_nodes:
         for chunk in stream:     
             chunk = chunk["choices"][0]["delta"].get("content", "")
             response_content += chunk
-            if (is_think_generated and (chunk == 'shell' or chunk == 'search' or chunk == '```')) or dont_show:
+            if (is_think_generated and chunk == '```') or dont_show:
                 response_content = self.get_codes(stream, response_content)
                 dont_show = True
                 continue

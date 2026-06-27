@@ -17,7 +17,7 @@ def shell_node( state: AgentState)->  AgentState:
     if not ans:
         state['logger'].print_text("❌ Command execution cancelled by user.", color='red', end='\n')
         print("\n")
-        state['messages'].append({'role':'user', 'content': "Command execution cancelled by user."})
+        state['messages'].append({'role':'system', 'content': "Command execution cancelled by user."})
         return state
     state['logger'].print_text("🔧 Running shell command ...", color='blue', end='\n')
     print("\n")
@@ -63,7 +63,7 @@ def prepare_tool_prompt( state: AgentState) -> AgentState:
             f"stderr:\n{state['stderr']}\n"
             f"exit_code: {state['exit_code']}"
         )
-        state['messages'].append({'role':'user', 'content': content})
+        state['messages'].append({'role':'system', 'content': content})
     except:
         pass
     return state
@@ -107,9 +107,9 @@ class search_tools:
             wiki_search_res = self.search_in_wiki(state['search_query'])
             ddg_res = self.search_duckduckgo(state['search_query'])
             interval = time.perf_counter() - t
-        state['messages'].append({'role':'user', 'content': wiki_search_res})
+        state['messages'].append({'role':'system', 'content': wiki_search_res})
         for i, res in enumerate(ddg_res):
-            state['messages'].append({'role':'user', 'content': res['body']})
+            state['messages'].append({'role':'system', 'content': res['body']})
         if len(ddg_res) == 0:
             state['logger'].print_text("❌ No result found ", color='red')
         else:
